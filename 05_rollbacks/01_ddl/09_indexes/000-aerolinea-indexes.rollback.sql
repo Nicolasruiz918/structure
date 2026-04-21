@@ -1,0 +1,5 @@
+-- ============================================
+-- AEROLINEA - Rollback Índices
+-- ============================================
+-- Nota: Los índices en este esquema son generados automáticamente
+-- y no requieren rollback manual.

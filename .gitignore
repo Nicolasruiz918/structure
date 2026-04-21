@@ -1,0 +1,28 @@
+# Docker
+postgres_data/
+*.log
+*.pid
+
+# Liquibase
+liquibase.properties
+liquibase.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+*.tmp
+
+# Credenciales
+.env
+*.key
+*.pem
+
+# Archivos de respaldo
+*.bak
+*.backup
