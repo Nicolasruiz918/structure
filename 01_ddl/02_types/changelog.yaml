@@ -1,0 +1,33 @@
+﻿databaseChangeLog:
+  - changeSet:
+      id: 003-gender-type
+      author: aprendiz
+      logicalFilePath: 01_ddl/02_types/gender_type.sql
+      labels: "ddl,base,types"
+      comment: Creates gender type for person table.
+      changes:
+        - sqlFile:
+            path: gender_type.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/02_types/002-gender-type.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+  - changeSet:
+      id: 004-transaction-type
+      author: aprendiz
+      logicalFilePath: 01_ddl/02_types/transaction_type.sql
+      labels: "ddl,base,types"
+      comment: Creates transaction type for payment transactions.
+      changes:
+        - sqlFile:
+            path: transaction_type.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/02_types/003-transaction-type.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
