@@ -1,0 +1,34 @@
+databaseChangeLog:
+  # ============================================
+  # 00_ROLES
+  # ============================================
+  - include:
+      file: 00_roles/changelog.yaml
+      relativeToChangelogFile: true
+
+  # ============================================
+  # 01_GRANTS
+  # ============================================
+  - include:
+      file: 01_grants/changelog.yaml
+      relativeToChangelogFile: true
+
+  # ============================================
+  # 02_POLICIES - RLS
+  # ============================================
+  - include:
+      file: 02_policies/changelog.yaml
+      relativeToChangelogFile: true
+
+
+
+  # ============================================
+  # OPCIONALES (comentar si no se necesitan)
+  # ============================================
+  # - include:
+  #     file: 02_policies/07_audit_setup.sql
+  #     relativeToChangelogFile: true
+  #
+  # - include:
+  #     file: 02_policies/08_implementation_notes.sql
+  #     relativeToChangelogFile: true
