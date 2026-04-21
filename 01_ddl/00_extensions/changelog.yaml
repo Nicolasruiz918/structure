@@ -1,0 +1,17 @@
+﻿databaseChangeLog:
+  - changeSet:
+      id: 001-enable-pgcrypto-extension
+      author: aprendiz
+      logicalFilePath: 01_ddl/00_extensions/pgcrypto.sql
+      labels: "ddl,base,extensions"
+      comment: Enables the pgcrypto extension for UUID generation.
+      changes:
+        - sqlFile:
+            path: pgcrypto.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/00_extensions/001-pgcrypto.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
