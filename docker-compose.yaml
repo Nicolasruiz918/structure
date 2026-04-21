@@ -1,0 +1,47 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: aerolinea_postgres
+    environment:
+      POSTGRES_DB: aerolinea
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+    ports:
+      - "25432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d aerolinea"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - aerolinea_network
+
+  liquibase:
+    image: liquibase/liquibase:4.25
+    container_name: aerolinea_liquibase
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./changelog:/liquibase/changelog
+      - ./01_ddl:/liquibase/01_ddl
+      - ./02_dml:/liquibase/02_dml
+      - ./03_dcl:/liquibase/03_dcl
+      - ./05_rollbacks:/liquibase/05_rollbacks
+      - ./liquibase.properties:/liquibase/liquibase.properties
+    environment:
+      LIQUIBASE_COMMAND_USERNAME: admin
+      LIQUIBASE_COMMAND_PASSWORD: admin123
+      LIQUIBASE_COMMAND_URL: jdbc:postgresql://postgres:5432/aerolinea
+    command: ["--defaultsFile=/liquibase/liquibase.properties", "update"]
+    networks:
+      - aerolinea_network
+
+volumes:
+  postgres_data:
+
+networks:
+  aerolinea_network:
+    driver: bridge
