@@ -1,0 +1,2 @@
+databaseChangeLog:
+  # Changelog de rollbacks vacío. Las instrucciones de rollback se definen en cada archivo de changelog individual.
