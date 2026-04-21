@@ -1,0 +1,20 @@
+databaseChangeLog:
+  # ============================================
+  # 01_GRANTS
+  # ============================================
+  - changeSet:
+      id: 002-assign-permissions
+      author: aprendiz
+      logicalFilePath: 01_grants/01_assign_permissions.sql
+      labels: "seguridad,grants,permisos"
+      comment: Assigns granular permissions to each role per schema
+      changes:
+        - sqlFile:
+            path: 01_assign_permissions.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../../05_rollbacks/03_dcl/01_grants/01_assign_permissions.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
