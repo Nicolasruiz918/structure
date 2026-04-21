@@ -1,0 +1,20 @@
+databaseChangeLog:
+  # ============================================
+  # 00_ROLES
+  # ============================================
+  - changeSet:
+      id: 001-create-roles
+      author: aprendiz
+      logicalFilePath: 00_roles/01_create_roles.sql
+      labels: "seguridad,roles,base"
+      comment: Creates all security roles for the system (admin, ventas, cliente, etc.)
+      changes:
+        - sqlFile:
+            path: 01_create_roles.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../../05_rollbacks/03_dcl/00_roles/01_create_roles.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
