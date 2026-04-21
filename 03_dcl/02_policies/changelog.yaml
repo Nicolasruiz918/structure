@@ -1,0 +1,105 @@
+databaseChangeLog:
+  # ============================================
+  # 02_POLICIES - RLS
+  # ============================================
+  - changeSet:
+      id: 003-enable-rls
+      author: aprendiz
+      logicalFilePath: 02_policies/01_enable_rls.sql
+      labels: "seguridad,rls,base"
+      comment: Enables RLS and FORCE RLS on critical tables
+      changes:
+        - sqlFile:
+            path: 01_enable_rls.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../../05_rollbacks/03_dcl/02_policies/01_enable_rls.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 004-policies-notifications
+      author: aprendiz
+      logicalFilePath: 02_policies/02_policies_notifications.sql
+      labels: "seguridad,rls,notificaciones"
+      comment: RLS policies for notifications schema (admin, system, cliente)
+      changes:
+        - sqlFile:
+            path: 02_policies_notifications.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../../05_rollbacks/03_dcl/02_policies/02_policies_notifications.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 005-policies-reservations
+      author: aprendiz
+      logicalFilePath: 02_policies/03_policies_reservations.sql
+      labels: "seguridad,rls,ventas,reservas"
+      comment: RLS policies for reservations (admin, ventas by office, cliente by customer_id)
+      changes:
+        - sqlFile:
+            path: 03_policies_reservations.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../../05_rollbacks/03_dcl/02_policies/03_policies_reservations.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 006-policies-customers
+      author: aprendiz
+      logicalFilePath: 02_policies/04_policies_customers.sql
+      labels: "seguridad,rls,clientes"
+      comment: RLS policies for customers (admin, ventas view all, cliente self only)
+      changes:
+        - sqlFile:
+            path: 04_policies_customers.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../../05_rollbacks/03_dcl/02_policies/04_policies_customers.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 007-policies-invoices
+      author: aprendiz
+      logicalFilePath: 02_policies/05_policies_invoices.sql
+      labels: "seguridad,rls,facturacion"
+      comment: RLS policies for invoices (admin, finanzas view all, cliente self only)
+      changes:
+        - sqlFile:
+            path: 05_policies_invoices.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../../05_rollbacks/03_dcl/02_policies/05_policies_invoices.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
+
+  - changeSet:
+      id: 008-policies-users
+      author: aprendiz
+      logicalFilePath: 02_policies/06_policies_users.sql
+      labels: "seguridad,rls,usuarios"
+      comment: RLS policies for user accounts (admin full, roles self only)
+      changes:
+        - sqlFile:
+            path: 06_policies_users.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../../05_rollbacks/03_dcl/02_policies/06_policies_users.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
