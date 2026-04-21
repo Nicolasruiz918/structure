@@ -1,0 +1,6 @@
+-- ============================================
+-- AEROLINEA - Índices
+-- ============================================
+-- Nota: Los índices en este esquema son generados automáticamente
+-- por las constraints (PRIMARY KEY y UNIQUE) de la tabla airline.
+-- No hay índices adicionales de negocio para este esquema.

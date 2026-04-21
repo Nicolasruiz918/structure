@@ -1,0 +1,92 @@
+databaseChangeLog:
+  - changeSet:
+      id: 019-aerolinea-indexes
+      author: aprendiz
+      changes:
+        - sqlFile:
+            path: 000_aerolinea_indexes.sql
+            relativeToChangelogFile: true
+  - changeSet:
+      id: 020-geografia-indexes
+      author: aprendiz
+      changes:
+        - sqlFile:
+            path: 001_geografia_indexes.sql
+            relativeToChangelogFile: true
+  - changeSet:
+      id: 022-identidad-indexes
+      author: aprendiz
+      changes:
+        - sqlFile:
+            path: 002_identidad_indexes.sql
+            relativeToChangelogFile: true
+  - changeSet:
+      id: 023-seguridad-indexes
+      author: aprendiz
+      changes:
+        - sqlFile:
+            path: 003_seguridad_indexes.sql
+            relativeToChangelogFile: true
+  - changeSet:
+      id: 024-clientes-indexes
+      author: aprendiz
+      changes:
+        - sqlFile:
+            path: 004_clientes_indexes.sql
+            relativeToChangelogFile: true
+  - changeSet:
+      id: 025-ventas-indexes
+      author: aprendiz
+      changes:
+        - sqlFile:
+            path: 005_ventas_indexes.sql
+            relativeToChangelogFile: true
+  - changeSet:
+      id: 026-aeropuerto-indexes
+      author: aprendiz
+      changes:
+        - sqlFile:
+            path: 006_aeropuerto_indexes.sql
+            relativeToChangelogFile: true
+  - changeSet:
+      id: 027-aeronaves-indexes
+      author: aprendiz
+      changes:
+        - sqlFile:
+            path: 007_aeronaves_indexes.sql
+            relativeToChangelogFile: true
+  - changeSet:
+      id: 028-operaciones-indexes
+      author: aprendiz
+      changes:
+        - sqlFile:
+            path: 008_operaciones_indexes.sql
+            relativeToChangelogFile: true
+  - changeSet:
+      id: 029-abordaje-indexes
+      author: aprendiz
+      changes:
+        - sqlFile:
+            path: 009_abordaje_indexes.sql
+            relativeToChangelogFile: true
+  - changeSet:
+      id: 030-pagos-indexes
+      author: aprendiz
+      changes:
+        - sqlFile:
+            path: 010_pagos_indexes.sql
+            relativeToChangelogFile: true
+  - changeSet:
+      id: 031-facturacion-indexes
+      author: aprendiz
+      changes:
+        - sqlFile:
+            path: 011_facturacion_indexes.sql
+            relativeToChangelogFile: true
+  - changeSet:
+      id: 032-notificaciones-indexes
+      author: aprendiz
+      changes:
+        - sqlFile:
+            path: 012_notificaciones_indexes.sql
+            relativeToChangelogFile: true
