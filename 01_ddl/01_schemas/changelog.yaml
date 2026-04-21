@@ -1,0 +1,17 @@
+﻿databaseChangeLog:
+  - changeSet:
+      id: 002-create-schemas
+      author: aprendiz
+      logicalFilePath: 01_ddl/01_schemas/create_schemas.sql
+      labels: "ddl,base,schemas"
+      comment: Creates all functional schemas for the airline system.
+      changes:
+        - sqlFile:
+            path: create_schemas.sql
+            relativeToChangelogFile: true
+            stripComments: false
+      rollback:
+        - sqlFile:
+            path: ../../05_rollbacks/01_ddl/01_schemas/002-create-schemas.rollback.sql
+            relativeToChangelogFile: true
+            stripComments: false
